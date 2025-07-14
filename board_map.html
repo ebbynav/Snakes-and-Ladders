@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snakes and Ladders - Board Map</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .board-map { display: grid; grid-template-columns: repeat(10, 50px); gap: 1px; margin: 20px 0; }
+        .tile { width: 50px; height: 50px; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 10px; }
+        .snake { background-color: #ffe6e6; border: 2px solid #cc0000; }
+        .ladder { background-color: #e6ffe6; border: 2px solid #28a745; }
+        .snake-end { background-color: #ffcccc; border: 1px dashed #cc0000; }
+        .ladder-end { background-color: #ccffcc; border: 1px dashed #28a745; }
+        .legend { margin: 20px 0; }
+        .legend span { display: inline-block; margin: 5px 10px; padding: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Snakes and Ladders Board Map</h1>
+    
+    <div class="legend">
+        <span style="background-color: #ffe6e6; border: 2px solid #cc0000;">🐍 Snake Start</span>
+        <span style="background-color: #ffcccc; border: 1px dashed #cc0000;">Snake End</span>
+        <span style="background-color: #e6ffe6; border: 2px solid #28a745;">🪜 Ladder Start</span>
+        <span style="background-color: #ccffcc; border: 1px dashed #28a745;">Ladder End</span>
+    </div>
+    
+    <div class="board-map" id="boardMap"></div>
+    
+    <h2>All Snakes and Ladders:</h2>
+    <div style="display: flex; gap: 40px;">
+        <div>
+            <h3>🐍 Snakes (10 total)</h3>
+            <ul>
+                <li>16 → 6 (early game)</li>
+                <li>24 → 5 (early game)</li>
+                <li>47 → 26 (mid game)</li>
+                <li>49 → 11 (mid game)</li>
+                <li>56 → 53 (small)</li>
+                <li>62 → 19 (original)</li>
+                <li>64 → 60 (small)</li>
+                <li>87 → 24 (late game)</li>
+                <li>93 → 73 (late game)</li>
+                <li>98 → 79 (final)</li>
+            </ul>
+        </div>
+        <div>
+            <h3>🪜 Ladders (10 total)</h3>
+            <ul>
+                <li>1 → 38 (big start)</li>
+                <li>4 → 14 (early)</li>
+                <li>9 → 21 (early)</li>
+                <li>15 → 26 (early)</li>
+                <li>21 → 42 (mid game)</li>
+                <li>28 → 84 (big jump)</li>
+                <li>36 → 44 (small)</li>
+                <li>51 → 67 (mid-late)</li>
+                <li>71 → 91 (late game)</li>
+                <li>80 → 100 (winner!)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        const snakes = { 
+            16: 6, 24: 5, 47: 26, 49: 11, 56: 53, 
+            62: 19, 64: 60, 87: 24, 93: 73, 98: 79 
+        };
+        const ladders = { 
+            1: 38, 4: 14, 9: 21, 15: 26, 21: 42, 
+            28: 84, 36: 44, 51: 67, 71: 91, 80: 100 
+        };
+        
+        const boardMap = document.getElementById('boardMap');
+        
+        // Create board (100 down to 1, zigzag pattern)
+        for (let row = 9; row >= 0; row--) {
+            for (let col = 0; col < 10; col++) {
+                let tileNumber;
+                if (row % 2 === 1) {
+                    tileNumber = (9 - row) * 10 + col + 1;
+                } else {
+                    tileNumber = (9 - row) * 10 + (9 - col) + 1;
+                }
+                
+                const tile = document.createElement('div');
+                tile.className = 'tile';
+                tile.textContent = tileNumber;
+                
+                if (snakes[tileNumber]) {
+                    tile.classList.add('snake');
+                    tile.title = `Snake: ${tileNumber} → ${snakes[tileNumber]}`;
+                } else if (ladders[tileNumber]) {
+                    tile.classList.add('ladder');
+                    tile.title = `Ladder: ${tileNumber} → ${ladders[tileNumber]}`;
+                } else if (Object.values(snakes).includes(tileNumber)) {
+                    tile.classList.add('snake-end');
+                    tile.title = `Snake destination: ${tileNumber}`;
+                } else if (Object.values(ladders).includes(tileNumber)) {
+                    tile.classList.add('ladder-end');
+                    tile.title = `Ladder destination: ${tileNumber}`;
+                }
+                
+                boardMap.appendChild(tile);
+            }
+        }
+    </script>
+</body>
+</html>

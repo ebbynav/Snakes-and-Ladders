@@ -1,0 +1,300 @@
+[
+  {
+    "question": "A 6-year-old girl is not allowed to go to school.",
+    "options": ["Right to Education violated", "Right to Vote violated"],
+    "answer": "Right to Education violated"
+  },
+  {
+    "question": "A man is treated badly at a hospital because of his caste.",
+    "options": ["Right to Equality violated", "Right to Religion violated"],
+    "answer": "Right to Equality violated"
+  },
+  {
+    "question": "A person is arrested without being told why.",
+    "options": [
+      "Violation of Right to Freedom",
+      "Violation of Right to Property"
+    ],
+    "answer": "Violation of Right to Freedom"
+  },
+  {
+    "question": "A woman is not allowed to speak at a public rally.",
+    "options": [
+      "Right to Freedom of Speech violated",
+      "Cultural Rights violated"
+    ],
+    "answer": "Right to Freedom of Speech violated"
+  },
+  {
+    "question": "A minor boy is made to work in a factory.",
+    "options": [
+      "Right against Exploitation violated",
+      "Right to Education violated"
+    ],
+    "answer": "Right against Exploitation violated"
+  },
+  {
+    "question": "A shop owner is forced to donate money for a temple.",
+    "options": ["Freedom of Religion violated", "Freedom of Trade violated"],
+    "answer": "Freedom of Religion violated"
+  },
+  {
+    "question": "A citizen wants to vote in elections but is only 16.",
+    "options": ["Can vote", "Cannot vote"],
+    "answer": "Cannot vote"
+  },
+  {
+    "question": "A person is stopped from practicing his religion.",
+    "options": [
+      "Violation of Right to Freedom",
+      "Violation of Right to Education"
+    ],
+    "answer": "Violation of Right to Freedom"
+  },
+  {
+    "question": "A tribal community wants to preserve their language.",
+    "options": ["Cultural Rights", "Economic Rights"],
+    "answer": "Cultural Rights"
+  },
+  {
+    "question": "A person’s land is taken by government without money.",
+    "options": [
+      "Violation of Right to Property",
+      "Violation of Right to Privacy"
+    ],
+    "answer": "Violation of Right to Property"
+  },
+  {
+    "question": "A law says only men can apply for a job.",
+    "options": ["Equality violated", "Freedom of Speech violated"],
+    "answer": "Equality violated"
+  },
+  {
+    "question": "A peaceful protest is broken up by police without reason.",
+    "options": ["Freedom of Assembly violated", "Freedom of Religion violated"],
+    "answer": "Freedom of Assembly violated"
+  },
+  {
+    "question": "A person writes a blog against government and gets jailed.",
+    "options": [
+      "Freedom of Expression violated",
+      "Legal under Freedom of Religion"
+    ],
+    "answer": "Freedom of Expression violated"
+  },
+  {
+    "question": "A citizen can't find out how funds were used in a project.",
+    "options": ["Right to Information violated", "Right to Vote violated"],
+    "answer": "Right to Information violated"
+  },
+  {
+    "question": "A Muslim girl is not allowed to wear hijab in school.",
+    "options": ["Violates Freedom of Religion", "Violates Right to Vote"],
+    "answer": "Violates Freedom of Religion"
+  },
+  {
+    "question": "A child from a poor family is denied school books.",
+    "options": ["Right to Education violated", "Right to Religion violated"],
+    "answer": "Right to Education violated"
+  },
+  {
+    "question": "A private company refuses job to a person with disability.",
+    "options": ["Equality violated", "Right to Vote violated"],
+    "answer": "Equality violated"
+  },
+  {
+    "question": "A village demands water and sanitation as a basic right.",
+    "options": ["Part of Right to Life", "Only a state rule"],
+    "answer": "Part of Right to Life"
+  },
+  {
+    "question": "A person’s phone is tapped without legal reason.",
+    "options": ["Right to Privacy violated", "Allowed under Freedom of Speech"],
+    "answer": "Right to Privacy violated"
+  },
+  {
+    "question": "A citizen wants to start a new political party.",
+    "options": [
+      "Allowed under Freedom of Association",
+      "Not allowed by Constitution"
+    ],
+    "answer": "Allowed under Freedom of Association"
+  },
+  {
+    "question": "A company dumps waste into a river.",
+    "options": [
+      "Violates Right to Clean Environment",
+      "Allowed under Trade Rights"
+    ],
+    "answer": "Violates Right to Clean Environment"
+  },
+  {
+    "question": "A university denies admission based on religion.",
+    "options": ["Equality violated", "Freedom of Trade violated"],
+    "answer": "Equality violated"
+  },
+  {
+    "question": "A girl wants to file a case but cannot afford a lawyer.",
+    "options": ["Legal Aid is a right", "Not her right"],
+    "answer": "Legal Aid is a right"
+  },
+  {
+    "question": "A state government is removed suddenly by Centre.",
+    "options": ["President’s Rule (Article 356)", "Article 21 applied"],
+    "answer": "President’s Rule (Article 356)"
+  },
+  {
+    "question": "A citizen wants to settle in another state.",
+    "options": ["Allowed under Freedom of Movement", "Not allowed"],
+    "answer": "Allowed under Freedom of Movement"
+  },
+  {
+    "question": "A woman is paid less than a man for the same job.",
+    "options": ["Equality violated", "Legal under Constitution"],
+    "answer": "Equality violated"
+  },
+  {
+    "question": "A law says only Hindi speakers can apply for a post.",
+    "options": ["Discrimination based on language", "Legal rule"],
+    "answer": "Discrimination based on language"
+  },
+  {
+    "question": "A child is not allowed to play or rest after school.",
+    "options": [
+      "Right against Exploitation violated",
+      "Right to Property violated"
+    ],
+    "answer": "Right against Exploitation violated"
+  },
+  {
+    "question": "A new law bans internet in some areas without notice.",
+    "options": [
+      "Right to Information violated",
+      "Freedom of Religion violated"
+    ],
+    "answer": "Right to Information violated"
+  },
+  {
+    "question": "An MLA changes party after winning election.",
+    "options": ["Violates Anti-Defection Law", "Allowed under Article 19"],
+    "answer": "Violates Anti-Defection Law"
+  },
+  {
+    "question": "A person is forced to follow a particular religion.",
+    "options": ["Violates Religious Freedom", "Legal under Constitution"],
+    "answer": "Violates Religious Freedom"
+  },
+  {
+    "question": "A peaceful environment is not given by industry.",
+    "options": ["Violates Article 21", "Allowed under Article 15"],
+    "answer": "Violates Article 21"
+  },
+  {
+    "question": "A journalist’s article is removed without legal reason.",
+    "options": ["Freedom of Press violated", "Right to Property violated"],
+    "answer": "Freedom of Press violated"
+  },
+  {
+    "question": "A citizen is denied passport without reason.",
+    "options": [
+      "Right to Life and Liberty violated",
+      "Only Right to Religion affected"
+    ],
+    "answer": "Right to Life and Liberty violated"
+  },
+  {
+    "question": "A movie is banned for showing political content.",
+    "options": [
+      "Freedom of Expression may be violated",
+      "Only State law applies"
+    ],
+    "answer": "Freedom of Expression may be violated"
+  },
+  {
+    "question": "A poor family is evicted during rains without notice.",
+    "options": ["Right to Shelter violated", "Legal under Emergency"],
+    "answer": "Right to Shelter violated"
+  },
+  {
+    "question": "A community wants to protect its rituals and customs.",
+    "options": ["Cultural Rights", "Economic Rights"],
+    "answer": "Cultural Rights"
+  },
+  {
+    "question": "Government gives free laptops to only one caste.",
+    "options": ["Violates Equality", "Promotes Education"],
+    "answer": "Violates Equality"
+  },
+  {
+    "question": "A private school refuses admission to a child with HIV.",
+    "options": [
+      "Right to Equality and Dignity violated",
+      "Right to Education not affected"
+    ],
+    "answer": "Right to Equality and Dignity violated"
+  },
+  {
+    "question": "A law requires all citizens to chant a religious slogan.",
+    "options": ["Freedom of Religion violated", "Part of Fundamental Duties"],
+    "answer": "Freedom of Religion violated"
+  },
+  {
+    "question": "Government builds statue using education funds.",
+    "options": [
+      "Misuse of Directive Principles",
+      "Misuse of public funds (violates Article 14)"
+    ],
+    "answer": "Misuse of public funds (violates Article 14)"
+  },
+  {
+    "question": "A state uses Hindi only for all official work.",
+    "options": ["May violate Language Rights", "Legal under Constitution"],
+    "answer": "May violate Language Rights"
+  },
+  {
+    "question": "A woman is denied property because she is married.",
+    "options": [
+      "Violates Equality and Property Rights",
+      "Legal under Customary Law"
+    ],
+    "answer": "Violates Equality and Property Rights"
+  },
+  {
+    "question": "Government bans media coverage of protests.",
+    "options": ["Freedom of Press violated", "Right to Education violated"],
+    "answer": "Freedom of Press violated"
+  },
+  {
+    "question": "A citizen’s name is removed from voting list.",
+    "options": ["Violates Right to Vote", "Right to Property violated"],
+    "answer": "Violates Right to Vote"
+  },
+  {
+    "question": "A person is punished by a law made after his action.",
+    "options": ["Violates Article 20(1)", "Allowed under Emergency"],
+    "answer": "Violates Article 20(1)"
+  },
+  {
+    "question": "A judge is removed without process.",
+    "options": ["Violates Judicial Independence", "Legal under Article 21"],
+    "answer": "Violates Judicial Independence"
+  },
+  {
+    "question": "A community is not counted in Census.",
+    "options": ["Violates Right to Equality", "Legal under Federalism"],
+    "answer": "Violates Right to Equality"
+  },
+  {
+    "question": "Internet is banned during exams in a state.",
+    "options": [
+      "Restriction may be excessive",
+      "Allowed under Education Policy"
+    ],
+    "answer": "Restriction may be excessive"
+  },
+  {
+    "question": "A law forces one religion’s text in schools.",
+    "options": ["Violates Secularism", "Part of Moral Education"],
+    "answer": "Violates Secularism"
+  }
+]

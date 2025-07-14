@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐍🪜 BNS Snakes and Ladders Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="game-body">
+    <div class="game-container">
+        <h1 class="game-title">
+            <i class="fas fa-crown title-crown"></i>
+            🐍🪜 Snakes and Ladders - BNS Edition 🪜🐍
+            <i class="fas fa-crown title-crown"></i>
+        </h1>
+        
+        <div class="game-layout">
+            <!-- Left Panel: Player Details -->
+            <div class="left-panel">
+                <div class="panel-header">
+                    <h3><i class="fas fa-users"></i> Players</h3>
+                </div>
+                <div class="players-section">
+                    {% for player in players %}
+                    <div class="player-entry">
+                        <span class="player-indicator p{{ loop.index }}"></span>
+                        <span class="player-name">{{ player }}</span>
+                        <i class="fas fa-star player-star"></i>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="current-turn-section">
+                    <h4><i class="fas fa-play-circle"></i> Current Turn</h4>
+                    <div id="currentTurn" class="current-turn-display">
+                        <span class="player-indicator p1"></span>
+                        Player 1's Turn
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Center Panel: Game Board -->
+            <div class="center-panel">
+                <div id="board" class="game-board"></div>
+            </div>
+            
+            <!-- Right Panel: Dice & Rules -->
+            <div class="right-panel">
+                <div class="dice-section">
+                    <h3><i class="fas fa-dice"></i> Roll Dice</h3>
+                    <div class="dice-container">
+                        <div id="diceDisplay" class="dice-display">🎲</div>
+                        <button onclick="rollDice()" id="rollBtn" class="roll-button">
+                            <i class="fas fa-dice-six"></i> Roll Dice
+                        </button>
+                    </div>
+                    <div id="dice-result" class="dice-result"></div>
+                </div>
+                
+                <div class="rules-section">
+                    <h4><i class="fas fa-scroll"></i> Game Rules</h4>
+                    <div class="rule-item snake-rule">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>🐍 <strong>Snakes:</strong> Answer wrong → slide down</span>
+                    </div>
+                    <div class="rule-item ladder-rule">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>🪜 <strong>Ladders:</strong> Answer right → climb up</span>
+                    </div>
+                    <div class="rule-item win-rule">
+                        <i class="fas fa-trophy"></i>
+                        <span>🏆 <strong>Goal:</strong> Reach tile 100 to win!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Winner Modal -->
+        <div id="winnerModal" class="simple-modal">
+            <div id="winnerContent" class="simple-modal-content">
+                <h2>� Winner! �</h2>
+                <div id="winnerText">Player Name</div>
+                <button onclick="closeWinnerModal()">Play Again</button>
+            </div>
+        </div>
+
+        <!-- Question Modal -->
+        <div id="questionModal" class="simple-modal">
+            <div id="questionContent" class="simple-modal-content">
+                <div id="questionHeader"></div>
+                <h3 id="questionText"></h3>
+                <div id="questionOptions"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Scripts -->
+    <script src="{{ url_for('static', filename='game.js') }}"></script>
+    <script>
+        // Initialize the game when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Initializing Snakes and Ladders Game...');
+            
+            // Get player names from Flask template
+            const playerNames = [
+                {% for player in players %}
+                "{{ player }}"{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            ];
+            
+            console.log('Players:', playerNames);
+            
+            // Initialize game board and players
+            initBoard();
+            initPlayers(playerNames);
+            
+            console.log('Game initialized successfully!');
+        });
+
+        // Add keyboard support for dice rolling
+        document.addEventListener('keydown', function(event) {
+            if ((event.code === 'Space' || event.code === 'Enter') && !event.repeat) {
+                event.preventDefault();
+                const rollBtn = document.getElementById('rollBtn');
+                if (!rollBtn.disabled) {
+                    rollDice();
+                }
+            }
+        });
+
+        // Simple winner modal
+        function showWinnerModal(winnerIndex) {
+            const winnerName = players[winnerIndex];
+            document.getElementById('winnerText').textContent = `Player ${winnerIndex + 1}: ${winnerName}`;
+            document.getElementById('winnerModal').style.display = 'block';
+        }
+
+        function closeWinnerModal() {
+            document.getElementById('winnerModal').style.display = 'none';
+            if (confirm('Would you like to start a new game?')) {
+                window.location.href = '/';
+            }
+        }
+
+        // Check for game completion
+        function checkGameCompletion() {
+            const winner = playerPositions.findIndex(pos => pos >= 100);
+            if (winner !== -1) {
+                setTimeout(() => {
+                    showWinnerModal(winner);
+                }, 1000);
+            }
+        }
+
+        // Override the finalizeMove function to check for winners
+        window.addEventListener('load', function() {
+            const originalFinalizeMove = window.finalizeMove;
+            window.finalizeMove = function() {
+                if (originalFinalizeMove) {
+                    originalFinalizeMove();
+                }
+                checkGameCompletion();
+            };
+        });
+    </script>
+</body>
+
+</html>

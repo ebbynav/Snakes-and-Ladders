@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐍🪜 BNS Snakes and Ladders - Setup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        function generateInputs(num) {
+            const container = document.getElementById('player-inputs');
+            container.innerHTML = '';
+            
+            if (num > 0) {
+                container.style.display = 'block';
+                container.innerHTML = '<div class="players-title"><i class="fas fa-users"></i> Enter Player Names</div>';
+                
+                for (let i = 0; i < num; i++) {
+                    const playerColor = ['magenta', 'blue', 'green', 'orange'][i];
+                    container.innerHTML += `
+                        <div class="player-input-group" style="animation-delay: ${i * 0.2}s">
+                            <label class="player-label">
+                                <span class="player-color-preview" style="background-color: ${playerColor}"></span>
+                                <i class="fas fa-user"></i> Player ${i + 1} Name:
+                            </label>
+                            <input name="player_${i}" class="player-input" placeholder="Enter name..." required>
+                        </div>
+                    `;
+                }
+                
+                // Add start button with delay
+                setTimeout(() => {
+                    const startBtn = document.querySelector('.start-btn');
+                    if (startBtn) {
+                        startBtn.style.opacity = '1';
+                        startBtn.style.transform = 'translateY(0)';
+                    }
+                }, (num * 200) + 300);
+            } else {
+                container.style.display = 'none';
+            }
+        }
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate title on load
+            const title = document.querySelector('.welcome-title');
+            if (title) {
+                setTimeout(() => {
+                    title.classList.add('animate-in');
+                }, 100);
+            }
+
+            // Add floating animation to icons
+            setTimeout(() => {
+                document.querySelectorAll('.floating-icon').forEach((icon, index) => {
+                    icon.style.animationDelay = (index * 0.5) + 's';
+                    icon.classList.add('float');
+                });
+            }, 1000);
+        });
+    </script>
+</head>
+
+<body class="setup-body">
+    <div class="setup-container">
+        <!-- Floating background icons -->
+        <div class="background-icons">
+            <i class="fas fa-dice floating-icon"></i>
+            <i class="fas fa-trophy floating-icon"></i>
+            <i class="fas fa-gamepad floating-icon"></i>
+            <i class="fas fa-star floating-icon"></i>
+            <i class="fas fa-crown floating-icon"></i>
+            <i class="fas fa-gem floating-icon"></i>
+        </div>
+
+        <div class="welcome-section">
+            <h1 class="welcome-title">
+                <span class="title-icon">🎲</span>
+                Welcome to BNS Snakes and Ladders
+                <span class="title-icon">🎲</span>
+            </h1>
+            <p class="welcome-subtitle">
+                <i class="fas fa-magic"></i> 
+                Get ready for an exciting adventure! Choose your players and start the fun!
+            </p>
+        </div>
+
+        <form method="post" action="/start" class="setup-form">
+            <div class="form-section">
+                <label for="num_players" class="main-label">
+                    <i class="fas fa-users-cog"></i> Select Number of Players:
+                </label>
+                <div class="select-container">
+                    <select name="num_players" class="player-select" onchange="generateInputs(this.value)" required>
+                        <option value="">🎯 Choose Players...</option>
+                        <option value="2">👥 2 Players</option>
+                        <option value="3">👥👤 3 Players</option>
+                        <option value="4">👥👥 4 Players</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-arrow"></i>
+                </div>
+            </div>
+
+            <div id="player-inputs" class="player-inputs-container"></div>
+
+            <button type="submit" class="start-btn">
+                <i class="fas fa-rocket"></i>
+                <span>🚀 Start Adventure!</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </form>
+
+        <!-- Game preview section -->
+        <div class="preview-section">
+            <h3 class="preview-title">
+                <i class="fas fa-eye"></i> Game Features
+            </h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-snake"></i>
+                    <h4>10 Snakes</h4>
+                    <p>Watch out for tricky snakes!</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-ladder"></i>
+                    <h4>10 Ladders</h4>
+                    <p>Climb up with correct answers!</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-question-circle"></i>
+                    <h4>Quiz Questions</h4>
+                    <p>Test your knowledge!</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-trophy"></i>
+                    <h4>Victory Rewards</h4>
+                    <p>Amazing winner celebrations!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
