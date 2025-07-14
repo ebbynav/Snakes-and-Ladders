@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 import random
 import json
+import os
 
 app = Flask(__name__)
 app.secret_key = 'bns-secret-key'
@@ -30,8 +31,9 @@ def get_question():
     with open('data/questions.json', encoding='utf-8') as f:
         questions = json.load(f)
     question = random.choice(questions)
-    return question
+    return jsonify(question)  # Send it as JSON
 
+# Deployment-safe run block
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    port = int(os.environ.get('PORT', 10000))  # fallback to 10000
+    app.run(host='0.0.0.0', port=port, debug=True)
